@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asrar Riyaz | Developer Portfolio</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+                   CSS RESET & BASE
+                   ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.10);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* ——— Color Palette ——— */
+            --color-1: #f43f5e;
+            --color-2: #f97316;
+            --color-3: #eab308;
+            --color-4: #22c55e;
+            --color-5: #06b6d4;
+            --color-6: #6366f1;
+            --color-7: #a855f7;
+            --color-8: #ec4899;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================================
+                   SCROLLBAR
+                   ============================================================ */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-6);
+            border-radius: 10px;
+        }
+
+        /* ============================================================
+                   MAIN CONTAINER
+                   ============================================================ */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px 60px;
+        }
+
+        /* ============================================================
+                   NAVIGATION
+                   ============================================================ */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.80);
+            backdrop-filter: blur(20px) saturate(1.4);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 60px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--color-6), var(--color-7), var(--color-5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            border-radius: 4px;
+            background: var(--color-6);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--color-6), var(--color-7));
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: all var(--transition);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.30);
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 40px rgba(99, 102, 241, 0.45);
+            color: #fff !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .nav-toggle span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        /* ============================================================
+                   HERO SECTION
+                   ============================================================ */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 70px;
+            padding: 10px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Removed .hero-badge */
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 58px);
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--color-6), var(--color-7), var(--color-1), var(--color-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradShift 6s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 6px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--color-6), var(--color-7));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.30);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(99, 102, 241, 0.45);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            background: rgba(0, 0, 0, 0.03);
+            color: var(--text-primary);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 10px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-stats .stat h3 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--color-6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stats .stat p {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---- Hero Image / Avatar ---- */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image .avatar-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            padding: 5px;
+            background: conic-gradient(from 0deg, var(--color-1), var(--color-3), var(--color-4), var(--color-5), var(--color-6), var(--color-7), var(--color-8), var(--color-1));
+            animation: spinGrad 10s infinite linear;
+            box-shadow: 0 0 80px rgba(99, 102, 241, 0.15);
+        }
+
+        @keyframes spinGrad {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-image .avatar-wrapper .inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--color-6);
+            background: #f8fafc;
+            border: 4px solid #fff;
+        }
+
+        .hero-image .avatar-wrapper .inner span {
+            background: linear-gradient(135deg, var(--color-6), var(--color-7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 72px;
+        }
+
+        /* Floating colorful badges */
+        .floating-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 60px;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+            animation: floatBadge 5s infinite alternate ease-in-out;
+        }
+
+        .floating-badge i {
+            font-size: 18px;
+        }
+
+        .floating-badge:nth-child(2) {
+            top: 6%;
+            right: -8%;
+            animation-delay: -1s;
+            border-left: 3px solid var(--color-1);
+        }
+        .floating-badge:nth-child(2) i {
+            color: var(--color-1);
+        }
+
+        .floating-badge:nth-child(3) {
+            bottom: 10%;
+            left: -12%;
+            animation-delay: -2.5s;
+            border-left: 3px solid var(--color-3);
+        }
+        .floating-badge:nth-child(3) i {
+            color: var(--color-3);
+        }
+
+        .floating-badge:nth-child(4) {
+            bottom: -4%;
+            right: 2%;
+            animation-delay: -4s;
+            border-left: 3px solid var(--color-4);
+            padding: 8px 16px;
+        }
+        .floating-badge:nth-child(4) i {
+            color: var(--color-4);
+            font-size: 15px;
+        }
+
+        @keyframes floatBadge {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-14px) rotate(2deg);
+            }
+        }
+
+        /* ============================================================
+                   SECTION TITLES
+                   ============================================================ */
+        .section-title {
+            font-size: clamp(26px, 3vw, 38px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .section-title .colorful {
+            background: linear-gradient(135deg, var(--color-1), var(--color-3), var(--color-4), var(--color-6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradShift 5s infinite alternate ease-in-out;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 17px;
+            margin-bottom: 36px;
+            max-width: 600px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        /* ============================================================
+                   PROJECTS / WORK
+                   ============================================================ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            padding: 30px 28px 32px;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-1), var(--color-3), var(--color-4), var(--color-5), var(--color-6), var(--color-7));
+            background-size: 200% 100%;
+            animation: gradShift 4s infinite alternate ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .project-card .icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.06);
+            padding: 12px;
+            border-radius: 14px;
+        }
+
+        .project-card .icon i {
+            background: linear-gradient(135deg, var(--color-6), var(--color-7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .project-card .domain {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-6);
+            background: rgba(99, 102, 241, 0.06);
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(99, 102, 241, 0.08);
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .project-card .domain:hover {
+            background: var(--color-6);
+            color: #fff;
+            border-color: var(--color-6);
+        }
+
+        .project-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .project-card .tags span {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .project-card .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            color: var(--color-6);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: gap var(--transition);
+        }
+
+        .project-card .project-link:hover {
+            gap: 14px;
+        }
+
+        /* ============================================================
+                   SKILLS / TECH STACK (only HTML, CSS, JS)
+                   ============================================================ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 18px;
+            margin-bottom: 60px;
+        }
+
+        .skill-chip {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: var(--radius-sm);
+            padding: 20px 16px;
+            text-align: center;
+            transition: all var(--transition);
+            cursor: default;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-chip:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--color-6);
+        }
+
+        .skill-chip i {
+            font-size: 34px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .skill-chip span {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Individual skill colors */
+        .skill-chip:nth-child(1) i {
+            color: #e34f26;
+        }
+        .skill-chip:nth-child(2) i {
+            color: #264de4;
+        }
+        .skill-chip:nth-child(3) i {
+            color: #f7df1e;
+        }
+
+        /* ============================================================
+                   EXPERIENCE / TIMELINE
+                   ============================================================ */
+        .experience-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .experience-card .exp-icon {
+            font-size: 44px;
+            background: linear-gradient(135deg, var(--color-3), var(--color-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+          .experience-card .exp-text h3 {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .experience-card .exp-text p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .experience-card .exp-text .highlight-text {
+            font-weight: 700;
+            color: var(--color-6);
+        }
+
+        /* ============================================================
+                   CONTACT / INFO
+                   ============================================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 18px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--color-6);
+        }
+
+        .contact-item .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-item:nth-child(1) .icon-circle {
+            background: rgba(234, 67, 53, 0.10);
+            color: #ea4335;
+        }
+        .contact-item:nth-child(2) .icon-circle {
+            background: rgba(52, 168, 83, 0.10);
+            color: #34a853;
+        }
+        .contact-item:nth-child(3) .icon-circle {
+            background: rgba(99, 102, 241, 0.10);
+            color: var(--color-6);
+        }
+
+        .contact-item .info .label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item .info .value {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 32px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer p i {
+            color: var(--color-1);
+        }
+
+        .footer .socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer .socials a {
+            color: var(--text-muted);
+            font-size: 20px;
+            transition: all var(--transition);
+        }
+
+        .footer .socials a:hover {
+            color: var(--color-6);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero p {
+                max-width: 100%;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-image .avatar-wrapper {
+                max-width: 300px;
+            }
+            .floating-badge:nth-child(2) {
+                right: 0%;
+            }
+            .floating-badge:nth-child(3) {
+                left: 0%;
+            }
+            .experience-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-container {
+                padding: 16px 14px 40px;
+            }
+
+            .nav {
+                padding: 10px 18px;
+                border-radius: 40px;
+                margin-bottom: 30px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 16px;
+                right: 16px;
+                background: #ffffff;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: var(--radius);
+                padding: 24px;
+                gap: 18px;
+                box-shadow: var(--shadow-hover);
+                z-index: 100;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-cta {
+                padding: 8px 18px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+            .hero-stats .stat h3 {
+                font-size: 22px;
+            }
+            .hero-image .avatar-wrapper {
+                max-width: 220px;
+            }
+            .hero-image .avatar-wrapper .inner span {
+                font-size: 48px;
+            }
+            .floating-badge {
+                font-size: 11px;
+                padding: 6px 14px;
+            }
+            .floating-badge i {
+                font-size: 14px;
+            }
+            .floating-badge:nth-child(2) {
+                top: 2%;
+                right: -4%;
+            }
+            .floating-badge:nth-child(3) {
+                bottom: 4%;
+                left: -6%;
+            }
+            .floating-badge:nth-child(4) {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+            }
+            .skill-chip {
+                padding: 16px 12px;
+            }
+            .skill-chip i {
+                font-size: 28px;
+            }
+            .skill-chip span {
+                font-size: 13px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .btn-primary,
+            .btn-secondary {
+                padding: 14px 24px;
+                font-size: 14px;
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-actions {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+            .hero-image .avatar-wrapper {
+                max-width: 180px;
+            }
+            .hero-image .avatar-wrapper .inner span {
+                font-size: 38px;
+            }
+            .floating-badge:nth-child(2) {
+                top: 0%;
+                right: -2%;
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            .floating-badge:nth-child(3) {
+                bottom: 2%;
+                left: -4%;
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            .experience-card {
+                padding: 20px 16px;
+            }
+            .experience-card .exp-icon {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    MAIN WRAPPER
+    ============================================================ -->
+    <div class="portfolio-container">
+
+        <!-- ============================================================
+        NAVIGATION
+        ============================================================ -->
+        <nav class="nav">
+            <div class="nav-logo">Asrar Riyaz</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+            </ul>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <!-- ============================================================
+        HERO SECTION
+        ============================================================ -->
+        <section class="hero">
+            <div class="hero-content">
+                <!-- Removed "Available for freelance" badge -->
+
+                <h1>
+                    I'm <span class="highlight">Asrar Riyaz</span><br />
+                    Developer &amp; Creator
+                </h1>
+
+                <p>
+                    I build modern, responsive web experiences using <strong>HTML, CSS, and JavaScript</strong>.
+                    2+ years of turning ideas into reality with clean code and pixel-perfect design.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fas fa-rocket"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Contact
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>2+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>2</h3>
+                        <p>Live Projects</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Avatar -->
+            <div class="hero-image">
+                <div class="avatar-wrapper">
+                    <div class="inner">
+                        <span>AR</span>
+                    </div>
+                </div>
+
+                <!-- Floating Badges (updated to Front-End) -->
+                <div class="floating-badge" style="top:6%; right:-8%;">
+                    <i class="fas fa-code"></i> Front-End
+                </div>
+                <div class="floating-badge" style="bottom:10%; left:-12%;">
+                    <i class="fas fa-palette"></i> UI/UX
+                </div>
+                <div class="floating-badge" style="bottom:-4%; right:2%;">
+                    <i class="fas fa-bolt"></i> Fast
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        PROJECTS SECTION
+        ============================================================ -->
+        <div id="projects" class="section-header">
+            <div>
+                <h2 class="section-title">My <span class="colorful">Projects</span></h2>
+                <p class="section-subtitle">Two live websites I've designed and developed from scratch.</p>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: Reyaz General Store -->
+            <div class="project-card">
+                <div class="icon"><i class="fas fa-store"></i></div>
+                <h3>Reyaz General Store</h3>
+                <p>A modern, vibrant e-commerce style storefront with a clean layout, product showcase, and responsive design.</p>
+                <a href="https://reyazgeneralstore.vercel.app" target="_blank" class="domain">
+                    <i class="fas fa-globe"></i> reyazgeneralstore.vercel.app
+                </a>
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Vercel</span>
+                </div>
+                <a href="https://reyazgeneralstore.vercel.app" target="_blank" class="project-link">
+                    Visit Site <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Project 2: The Ayaan Gamer -->
+            <div class="project-card">
+                <div class="icon"><i class="fas fa-gamepad"></i></div>
+                <h3>The Ayaan Gamer</h3>
+                <p>An immersive gaming hub with video management, short clips, news bulletins, and a dynamic admin panel.</p>
+                <a href="https://theayaangamer.netlify.app" target="_blank" class="domain">
+                    <i class="fas fa-globe"></i> theayaangamer.netlify.app
+                </a>
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Firebase</span>
+                    <span>Netlify</span>
+                </div>
+                <a href="https://theayaangamer.netlify.app" target="_blank" class="project-link">
+                    Visit Site <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SKILLS SECTION (Only HTML, CSS, JS)
+        ============================================================ -->
+        <div id="skills" class="section-header">
+            <div>
+                <h2 class="section-title">My <span class="colorful">Core Stack</span></h2>
+                <p class="section-subtitle">I specialize in these three foundational technologies.</p>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-chip"><i class="fab fa-html5"></i><span>HTML5</span></div>
+            <div class="skill-chip"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="skill-chip"><i class="fab fa-js"></i><span>JavaScript</span></div>
+        </div>
+
+        <!-- ============================================================
+        EXPERIENCE SECTION
+        ============================================================ -->
+        <div id="experience" class="section-header">
+            <div>
+                <h2 class="section-title">My <span class="colorful">Journey</span></h2>
+                <p class="section-subtitle">2+ years of building, learning, and growing as a developer.</p>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <div class="exp-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="exp-text">
+                <h3>Front-End Developer — Freelance</h3>
+                <p>
+                    With <span class="highlight-text">2+ years of hands-on experience</span> in <strong>HTML, CSS, and JavaScript</strong>,
+                    I've designed and deployed multiple production-ready websites including e-commerce stores and gaming platforms.
+                    I focus on crafting <span class="highlight-text">responsive, interactive, and visually engaging</span> web experiences
+                    that deliver real value to users and clients.
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        CONTACT SECTION
+        ============================================================ -->
+        <div id="contact" class="section-header">
+            <div>
+                <h2 class="section-title">Let's <span class="colorful">Connect</span></h2>
+                <p class="section-subtitle">Have a project in mind? Reach out — I'd love to collaborate.</p>
+            </div>
+        </div>
+
+        <div class="contact-grid">
+            <a href="mailto:asrarreyaz999@gmail.com" class="contact-item">
+                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                <div class="info">
+                    <div class="label">Email</div>
+                    <div class="value">asrarreyaz999@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="tel:+919596094982" class="contact-item">
+                <div class="icon-circle"><i class="fas fa-phone"></i></div>
+                <div class="info">
+                    <div class="label">Phone</div>
+                    <div class="value">+91 95960 94982</div>
+                </div>
+            </a>
+
+            <a href="#" class="contact-item">
+                <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="info">
+                    <div class="label">Location</div>
+                    <div class="value">India</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- ============================================================
+        FOOTER
+        ============================================================ -->
+        <div class="footer">
+            <p>&copy; 2026 Asrar Riyaz. Crafted with <i class="fas fa-heart"></i> and lots of code.</p>
+            <div class="socials">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <!-- /portfolio-container -->
+
+    <!-- ============================================================
+    JAVASCRIPT – Mobile Nav Toggle
+    ============================================================ -->
+    <script>
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('open');
+        });
+
+        // Close nav on link click (mobile)
+        links.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                links.classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
+           
