@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Asrar Reyaz</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav { padding: 2rem; text-align: center; }
+        nav a { color: #00d4ff; text-decoration: none; margin: 0 15px; font-weight: bold; }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        h1 { color: #00d4ff; font-size: 2.5rem; }
+
+        .skills {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: #111;
+            padding: 10px 20px;
+            border: 1px solid #00d4ff;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #00d4ff;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+    </nav>
+
+    <div class="container">
+        <h1>About Me</h1>
+        <p>Hi, I'm <strong>Asrar Reyaz</strong>. I am a passionate developer who enjoys building seamless, responsive, and visually appealing web applications.</p>
+        <p>My journey into development is driven by a desire to solve problems and create user-friendly experiences. I am always exploring new technologies to keep my skills sharp and my designs modern.</p>
+
+        <h3>My Skills</h3>
+        <div class="skills">
+            <div class="skill-tag">HTML5</div>
+            <div class="skill-tag">CSS3</div>
+            <div class="skill-tag">JavaScript</div>
+            <div class="skill-tag">Responsive Design</div>
+            <div class="skill-tag">Web Deployment</div>
+        </div>
+    </div>
+
+</body>
+</html>

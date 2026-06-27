@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asrar Reyaz | Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem;
+            text-align: center;
+            background: #111;
+        }
+        nav a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Improved Image Handling */
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            object-fit: cover; /* This makes the photo fit properly */
+            object-position: center;
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Larger Sections to make page "big" */
+        section {
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+    </nav>
+
+    <div class="hero">
+        <!-- Make sure your file is actually named 'photo.png' in the same folder -->
+        <img src="photo.png" alt="Asrar Reyaz" class="profile-img" onerror="this.style.display='none'">
+        <h1>Asrar Reyaz</h1>
+        <p>Full-Stack Developer & Tech Enthusiast</p>
+    </div>
+
+    <section>
+        <h2>Welcome to my world</h2>
+        <p>I build responsive, high-performance websites with a focus on clean design and smooth animations. My goal is to bridge the gap between creative ideas and technical implementation.</p>
+    </section>
+
+    <section>
+        <h2>Contact Me</h2>
+        <p>Email: <b>asrarreyaz999@gmail.com</b></p>
+        <p>Phone: <b>9596094982</b></p>
+    </section>
+
+</body>
+</html>
